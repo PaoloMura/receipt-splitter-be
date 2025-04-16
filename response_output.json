@@ -1,0 +1,97 @@
+[
+  {
+    "name": "Falafel",
+    "quantity": 1,
+    "price": 4.95
+  },
+  {
+    "name": "Hummus",
+    "quantity": 1,
+    "price": 4.95
+  },
+  {
+    "name": "Mixed Dips",
+    "quantity": 1,
+    "price": 6.95
+  },
+  {
+    "name": "Still Water",
+    "quantity": 1,
+    "price": 1.5
+  },
+  {
+    "name": "Still Water",
+    "quantity": 1,
+    "price": 1.5
+  },
+  {
+    "name": "Still Water",
+    "quantity": 1,
+    "price": 1.5
+  },
+  {
+    "name": "Diet Coke",
+    "quantity": 1,
+    "price": 2.0
+  },
+  {
+    "name": "Coke",
+    "quantity": 1,
+    "price": 2.0
+  },
+  {
+    "name": "Coke",
+    "quantity": 1,
+    "price": 2.0
+  },
+  {
+    "name": "Chicken Gyros",
+    "quantity": 1,
+    "price": 11.95
+  },
+  {
+    "name": "Chicken Gyros",
+    "quantity": 1,
+    "price": 11.95
+  },
+  {
+    "name": "Pork Gyros",
+    "quantity": 1,
+    "price": 11.95
+  },
+  {
+    "name": "Vegetarian Souvlaki",
+    "quantity": 1,
+    "price": 10.95
+  },
+  {
+    "name": "Chicken Souvlaki",
+    "quantity": 1,
+    "price": 7.95
+  },
+  {
+    "name": "Halloumi",
+    "quantity": 1,
+    "price": 6.95
+  },
+  {
+    "name": "Garlic Mayo",
+    "quantity": 1,
+    "price": 0.5
+  },
+  {
+    "name": "Vegan",
+    "quantity": 1,
+    "price": 6.95
+  },
+  {
+    "name": "Halloumi",
+    "quantity": 1,
+    "price": 1.5
+  },
+  {
+    "name": "Halloumi",
+    "quantity": 1,
+    "price": 1.5
+  }
+]

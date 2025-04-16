@@ -1,20 +1,20 @@
-# 🧾 Receipt Splitter Backend
+# 🧾 Receipt Splitter API
 
-This is a simple Flask API that receives a base64-encoded image of a receipt and (eventually) processes it to extract items, so users can split the bill based on what they ordered.
+This is a simple Flask API that receives a base64-encoded image of a receipt and using Google Gemini it processes and extracts the items and prices from the image into a list, so users can split the bill based on what they ordered. The list is return as a simple JSON object.
 
 ## 🚀 Features
 
 - Accepts a base64-encoded receipt image via a GET request
 - Decodes and prepares the image for processing
-- Placeholder for item extraction (OCR to be added)
-- Returns JSON response (currently empty)
+- Returns JSON response
 
 ## 📦 Requirements
 
 - Python 3.7+
 - Flask
 - Pillow
-- pytesseract
+- Google-genai
+- Pytesseract
 
 Install dependencies:
 
@@ -25,18 +25,19 @@ pip install -r requirements.txt
 ## Project Setup
 
 1. Clone the repo 
-2. Creat Virtual Environment if needed:
+2. Create .env containing Google Gemini API key
+3. Create Virtual Environment if necessary
+4. Install all dependencies
+
 
 # Virtual Environment:
-Whenever starting a new project, you need to create a virtual environment for all your packages to be installed in:
+1. Whenever starting a new project, you need to create a virtual environment for all your packages to be installed in:
 
 ```python3 -m venv env ```
 
 *"env"* is the name of the environment
-​
-When the new environment has been created, you can tell by looking at the bottom left hand corner of visual studio code:
 
-To activate the virtual environment, do the following command in the terminal:
+2. To activate the virtual environment, do the following command in the terminal:
 
 ```source env/bin/activate```
 
