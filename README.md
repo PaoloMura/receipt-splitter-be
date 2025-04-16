@@ -14,6 +14,7 @@ This is a simple Flask API that receives a base64-encoded image of a receipt and
 - Python 3.7+
 - Flask
 - Pillow
+- pytesseract
 
 Install dependencies:
 
