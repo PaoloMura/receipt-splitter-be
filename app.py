@@ -19,7 +19,7 @@ api_key = os.getenv('API_KEY')
 
 client = genai.Client(api_key=api_key)
 
-prompt = "Extract the list of items and put it into a json with the following format: /{name:, quantity, price:,}."
+prompt = "Extract the list of items and put it into a json with the following format: /{label:, quantity, cost:,}."
 
 @app.route('/upload-receipt', methods=['POST'])
 def upload_receipt():
