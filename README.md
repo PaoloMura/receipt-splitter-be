@@ -1,3 +1,27 @@
+# 🧾 Receipt Splitter Backend
+
+This is a simple Flask API that receives a base64-encoded image of a receipt and (eventually) processes it to extract items, so users can split the bill based on what they ordered.
+
+## 🚀 Features
+
+- Accepts a base64-encoded receipt image via a GET request
+- Decodes and prepares the image for processing
+- Placeholder for item extraction (OCR to be added)
+- Returns JSON response (currently empty)
+
+## 📦 Requirements
+
+- Python 3.7+
+- Flask
+- Pillow
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+
 Setting Up:
 # Virtual Environment:
 Whenever starting a new project, you need to create a virtual environment for all your packages to be installed in:
