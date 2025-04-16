@@ -1,10 +1,12 @@
-from flask import Flask, request, jsonify 
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 import base64
-import io 
+import io
 from PIL import Image 
 import pytesseract
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/upload-receipt', methods=['POST'])
 def upload_receipt():
