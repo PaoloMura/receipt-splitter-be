@@ -21,8 +21,11 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
+## Project Setup
 
-Setting Up:
+1. Clone the repo 
+2. Creat Virtual Environment if needed:
+
 # Virtual Environment:
 Whenever starting a new project, you need to create a virtual environment for all your packages to be installed in:
 
@@ -37,3 +40,11 @@ To activate the virtual environment, do the following command in the terminal:
 ```source env/bin/activate```
 
 *"env/activate/bin"* is the directory of the activate script
+
+3. Install dependencies 
+
+```pip install -r requirements.txt ```
+
+4. Run Flask server:
+
+```python app.py```
