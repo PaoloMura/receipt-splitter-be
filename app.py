@@ -2,7 +2,6 @@ from flask import Flask, request, jsonify
 import base64
 import io 
 from PIL import Image 
-import pytesseract
 from google import genai
 from dotenv import load_dotenv
 import os
@@ -21,7 +20,6 @@ api_key = os.getenv('API_KEY')
 client = genai.Client(api_key=api_key)
 
 prompt = "Extract the list of items and put it into a json with the following format: /{name:, quantity, price:,}."
-
 
 @app.route('/upload-receipt', methods=['POST'])
 def upload_receipt():
@@ -58,18 +56,16 @@ def upload_receipt():
             print("JSON parsing failed:", e)
             with open("raw_failed_output.txt", "w") as f:
                 f.write(raw_text)
-            exit(1)
+            return jsonify({"error": "JSON parsing failed"}), 400
+        print(parsed_json)
+        print(type(parsed_json))
+        return jsonify(parsed_json), 200
 
-        # Print the parsed_json as a JSON string
-        json_data = json.dumps(parsed_json, indent=2, ensure_ascii=False)
-        print(json_data)
-        print(type(json_data))
+        # return jsonify({
+        #     "message": "Image received successfully!",
+        #     "extracted_data": parsed_json}), 200
 
-        # extracted_text = pytesseract.image_to_string(image)
-
-        return jsonify({
-            "message": "Image received successfully!",
-            "raw_text": json_data}), 200
+    
     except Exception as e:
         return jsonify({"error": str(e)}), 400
 
