@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 import os
 from PIL import Image
 import json
+import re
 
 # Load the environment variables from the .env file
 load_dotenv()
@@ -24,14 +25,26 @@ response = client.models.generate_content(
 )
 
 print("Raw Response:")
-print(response.text)
 
-print(type(response.text))
-# Try parsing the response into a Python dict
-parsed_json = json.loads(response.text)
+raw_text = response.text.strip()
+
+# Remove markdown-style ```json ... ```
+if raw_text.startswith("```json"):
+    raw_text = re.sub(r"^```json\s*|\s*```$", "", raw_text.strip())
+
+print(raw_text)
+
+# Parse the JSON string into a Python object
+try:
+    parsed_json = json.loads(raw_text)
+except json.JSONDecodeError as e:
+    print("JSON parsing failed:", e)
+    with open("raw_failed_output.txt", "w") as f:
+        f.write(raw_text)
+    exit(1)
 
 # Save to a file
-with open("response_output.json", "w") as f:
-    json.dump(parsed_json, f, indent=2)
+with open("response_output.json", "w", encoding="utf-8") as f:
+    json.dump(parsed_json, f, indent=2, ensure_ascii=False)
 
 print("Saved response_output.json successfully.")
