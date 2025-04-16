@@ -15,6 +15,7 @@ This is a simple Flask API that receives a base64-encoded image of a receipt and
 - Flask
 - Pillow
 - pytesseract
+- google-genai
 
 Install dependencies:
 
