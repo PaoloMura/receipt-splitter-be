@@ -11,9 +11,6 @@ load_dotenv()
 # Access the API key from environment variables
 api_key = os.getenv('API_KEY')
 
-# Use the API key in your application
-print(f'Your API key is: {api_key}')
-
 client = genai.Client(api_key=api_key)
 
 prompt = "Extract the list of items and put it into a json with the following format: /{name:, quantity, price:,}."
@@ -24,15 +21,11 @@ response = client.models.generate_content(
     contents=[image, prompt]
 )
 
-print("Raw Response:")
-
 raw_text = response.text.strip()
 
 # Remove markdown-style ```json ... ```
 if raw_text.startswith("```json"):
     raw_text = re.sub(r"^```json\s*|\s*```$", "", raw_text.strip())
-
-print(raw_text)
 
 # Parse the JSON string into a Python object
 try:
@@ -43,8 +36,8 @@ except json.JSONDecodeError as e:
         f.write(raw_text)
     exit(1)
 
-# Save to a file
-with open("response_output.json", "w", encoding="utf-8") as f:
-    json.dump(parsed_json, f, indent=2, ensure_ascii=False)
+# Print the parsed_json as a JSON string
+json_data = json.dumps(parsed_json, indent=2, ensure_ascii=False)
+print(json_data)
 
 print("Saved response_output.json successfully.")
